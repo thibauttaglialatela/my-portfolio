@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
@@ -15,37 +16,37 @@ class Project
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    private DateTime $date;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $github_link;
+    private string $github_link;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $website;
+    private string $website;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $image;
+    private string $image;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    private string $description;
 
     public function getId(): ?int
     {
