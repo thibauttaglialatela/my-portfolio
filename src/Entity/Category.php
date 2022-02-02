@@ -17,17 +17,17 @@ class Category
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)
      */
-    private $template;
+    private string $template;
 
     /**
      * @ORM\OneToMany(targetEntity=Content::class, mappedBy="category")

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PersonnalContentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=PersonnalContentRepository::class)
@@ -15,62 +16,62 @@ class PersonnalContent
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $lastname;
+    private string $lastname;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $firstname;
+    private string $firstname;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
-    private $birthday;
+    private  DateTime $birthday;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adress;
+    private string $adress;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $town;
+    private string $town;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $zip_code;
+    private int $zip_code;
 
     /**
      * @ORM\Column(type="bigint")
      */
-    private $phone_number;
+    private int $phone_number;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private string $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $github_link;
+    private string $github_link;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $linkedin;
+    private string $linkedin;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $picture;
+    private string $picture;
 
     public function getId(): ?int
     {
@@ -101,7 +102,17 @@ class PersonnalContent
         return $this;
     }
 
+    public function getBirthday(): ?\DateTimeInterface
+    {
+        return $this->birthday;
+    }
 
+    public function setBirthday(\DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
 
     public function getAdress(): ?string
     {
@@ -199,15 +210,5 @@ class PersonnalContent
         return $this;
     }
 
-    public function getBirthday(): ?\DateTimeInterface
-    {
-        return $this->birthday;
-    }
 
-    public function setBirthday(\DateTimeInterface $birthday): self
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
 }

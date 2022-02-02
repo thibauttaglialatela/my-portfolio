@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ContentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=ContentRepository::class)
@@ -15,37 +16,36 @@ class Content
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $date;
+    private DateTime $date;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    private string $description;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $localisation;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $localisation;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $template;
+    private string $template;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="contents")
      */
-    private $category;
+    private  ?Category $category;
 
     public function getId(): ?int
     {
