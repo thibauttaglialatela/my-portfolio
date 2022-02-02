@@ -3,5 +3,24 @@
 {% block title %}{{ parent() }} - Home{% endblock %}
 
 {% block body %}
+    <section class="card mb-3" style="max-width: 540px;">
+        {% for thibaut in my_profile %}
+            <div class="row g-0">
+                <picture class="col-md-4">
+                    <img src="{{ thibaut.picture }}" alt="photo Thibaut Taglialatela">
+                </picture>
+                <article class="col-md-8">
+                    <div class="card-body bg-danger">
+                        <h1 class="card-title">Mon portfolio</h1>
+                        <p class="text-dark card-text">
+                            Hello, je m'appelle {{ thibaut.firstname }} {{ thibaut.lastname }}. Voici mon portfolio de
+                            développeur web. Vous y trouverez l'ensemble de mes projets, ainsi que tout ce qui me passionne dans la
+                            vie.
+                        </p>
+                    </div>
 
+                </article>
+                {% endfor %}
+            </div>
+    </section>
 {% endblock %}
