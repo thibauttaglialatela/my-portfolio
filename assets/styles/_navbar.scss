@@ -1,0 +1,9 @@
+.nav-link {
+  text-transform: uppercase;
+  color: $primary-color;
+
+  &:active {
+    background-color: $secondary-color;
+    color: $primary-color;
+  }
+}
