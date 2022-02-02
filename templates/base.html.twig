@@ -1,6 +1,6 @@
 {# templates/base.html.twig #}
 <!DOCTYPE html>
-<html>
+<html lang="fr" class="h-100">
 <head>
     <!-- ... -->
 
@@ -20,13 +20,16 @@
             <script src="/build/app.js" defer></script>
             See note below about the "defer" attribute -->
     {% endblock %}
+    <title>
+        {% block title %}Portfolio Web developper Thibaut Taglialatela{% endblock %}
+    </title>
+
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     {% include('_navbar.html.twig') %}
-
-{% block body %}
-{% endblock %}
-
-
+<main class="flex-shrink-0">
+    {% block body %}{% endblock %}
+</main>
+{% include('_footer.html.twig') %}
 </body>
 </html>
