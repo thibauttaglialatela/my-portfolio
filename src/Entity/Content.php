@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ContentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ContentRepository::class)
@@ -20,6 +21,12 @@ class Content
 
     /**
      * @ORM\Column(type="string", length=45)
+     * @Assert\Length (
+     *     min=2,
+     *     max=45,
+     *     maxMessage="Le nom ne doit pas dépasser {{ limit }} caractéres."
+     * )
+     * @Assert\NotBlank
      */
     private string $name;
 
@@ -40,12 +47,13 @@ class Content
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $template;
+    private ?string $template;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="contents")
      */
     private  ?Category $category;
+
 
     public function getId(): ?int
     {
