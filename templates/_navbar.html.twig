@@ -6,26 +6,20 @@
     <ul class="nav nav-pills">
         {% set links = [
             {'title': 'Compétences', 'path': 'skills_index'},
-            {'title': 'Projet', 'path': 'project_index'},
+            {'title': 'Mes projets', 'path': 'project_index'},
             {'title': 'Mon parcours', 'path': 'formation_index'},
-            {'title': 'Mes passions', 'path': 'passions_index'},
-            {'title': 'Contactez moi', 'path': 'contact'},
-            {'title': 'Sites amis', 'path': 'friendLink_index'},
+            {'title': 'Mes passions', 'path': 'hobby_index'},
         ] %}
 
-        {#{% for link in links %}
+        {% for link in links %}
             <li class="nav-item mx-4 my-auto">
                 <a class="nav-link text-decoration-none hover {{ app.request.pathinfo == path(link.path) ? 'active' }}"
-                        {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }} href="#">
+                        {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }} href="{{ path(link.path) }}">
                     {{ link.title }}
                 </a>
             </li>
-        {% endfor %}#}
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Compétences</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Mes projets</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Mon parcours</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Mes passions</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Contactez moi</a></li>
+        {% endfor %}
+
     </ul>
 
 

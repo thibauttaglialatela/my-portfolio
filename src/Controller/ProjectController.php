@@ -12,12 +12,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/project")
+ * @Route("/project", name="project_")
  */
 class ProjectController extends AbstractController
 {
     /**
-     * @Route("/", name="project_index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      */
     public function index(ProjectRepository $projectRepository): Response
     {
@@ -29,7 +29,7 @@ class ProjectController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="project_show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"})
      */
     public function show(Project $project): Response
     {
