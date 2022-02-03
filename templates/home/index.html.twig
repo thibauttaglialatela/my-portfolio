@@ -3,5 +3,44 @@
 {% block title %}{{ parent() }} - Home{% endblock %}
 
 {% block body %}
+    <section class="card mb-3" style="max-width: 100vw;">
+        {% for thibaut in my_profile %}
+        <div class="row g-0">
+            <picture class="col-md-4">
+                <img src="{{ thibaut.picture }}" alt="photo Thibaut Taglialatela">
+            </picture>
+            <article class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">Mon portfolio</h3>
+                    <p class="text-dark card-text">
+                        Hello, je m'appelle {{ thibaut.firstname }} {{ thibaut.lastname }}. Voici mon portfolio de
+                        développeur web. Vous y trouverez l'ensemble de mes projets, ainsi que tout ce qui me passionne
+                        dans la
+                        vie.
+                    </p>
+                </div>
 
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+    <section>
+        <h1 class="text-center text-uppercase text-light">mes projets récents</h1>
+        <div class="card-group">
+        {% for project in projects %}
+
+                <div class="card mx-2">
+                    <img src="{{ project.image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.name }}</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+
+        {% endfor %}
+        </div>
+
+    </section>
 {% endblock %}

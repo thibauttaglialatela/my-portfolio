@@ -1,7 +1,12 @@
 body {
   background-color: $primary-color;
+  padding-top: 100px;
 }
 
 .text-light {
   color: $third-color;
+}
+
+.text-dark {
+  color: $primary-color;
 }
