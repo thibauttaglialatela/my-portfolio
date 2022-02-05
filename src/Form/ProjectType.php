@@ -3,13 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Project;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProjectType extends AbstractType
@@ -25,7 +24,7 @@ class ProjectType extends AbstractType
             ->add('github_link', UrlType::class)
             ->add('website', UrlType::class,)
             ->add('image', TextType::class)
-            ->add('description', TextareaType::class,
+            ->add('description', CKEditorType::class,
             ['attr' => ['row' => 10]
             ])
         ;
