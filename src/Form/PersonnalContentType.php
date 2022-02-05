@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\PersonnalContent;
-use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -17,15 +17,24 @@ class PersonnalContentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('adresse', TextType::class)
-            ->add('Ville', TextType::class)
-            ->add('Code postale', NumberType::class)
-            ->add('Numéro de téléphone', TelType::class)
-            ->add('email', EmailType::class)
-            ->add('GitHub', TextType::class)
-            ->add('linkedin', TextType::class)
-            ->add('Photo', TextType::class)
-            ->add('Biographie', CKEditorType::class)
+            ->add('adress', TextType::class,
+            ['label' => 'adresse'])
+            ->add('town', TextType::class,
+                ['label' => 'ville'])
+            ->add('zipCode', NumberType::class,
+                ['label' => 'code postale'])
+            ->add('phoneNumber', TelType::class,
+                ['label' => 'numéro de téléphone'])
+            ->add('email', EmailType::class,
+                ['label' => 'e-mail'])
+            ->add('GitHub_link', TextType::class,
+                ['label' => 'GitHub'])
+            ->add('linkedin', TextType::class,
+                ['label' => 'LikedIn'])
+            ->add('picture', TextType::class,
+                ['label' => 'Ma photo'])
+            ->add('summary', CKEditorType::class,
+            ['attr' => ['row'=> 20]])
         ;
     }
 

@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Edit PersonnalContent{% endblock %}
 
 {% block body %}
-    <h1>Edit PersonnalContent</h1>
+    <h1 class="text-light text-center text-uppercase">éditer mes informations personnelles</h1>
 
-    {{ include('personnal_content/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/personnal_content/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('personnal_content_index') }}">back to list</a>
+    <a href="{{ path('admin_personnal_content_index') }}">Retour</a>
 
-    {{ include('personnal_content/_delete_form.html.twig') }}
 {% endblock %}

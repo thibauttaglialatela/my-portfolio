@@ -16,10 +16,6 @@
                 <th>Code postal</th>
                 <th>Téléphone</th>
                 <th>Email</th>
-                <th>Lien Github</th>
-                <th>Linkedin</th>
-                <th>Picture</th>
-                <th>Summary</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -34,12 +30,8 @@
                 <td>{{ personnal_content.zipCode }}</td>
                 <td>{{ personnal_content.phoneNumber }}</td>
                 <td>{{ personnal_content.email }}</td>
-                <td>{{ personnal_content.githubLink }}</td>
-                <td>{{ personnal_content.linkedin }}</td>
-                <td>{{ personnal_content.picture }}</td>
-                <td>{{ personnal_content.summary }}</td>
                 <td>
-                    <a href="{{ path('admin_personnal_content_edit', {'id': personnal_content.id}) }}">edit</a>
+                    <a href="{{ path('admin_personnal_content_edit', {'id': personnal_content.id}) }}">éditer</a>
                 </td>
             </tr>
         {% else %}
