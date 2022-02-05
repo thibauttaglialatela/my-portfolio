@@ -73,6 +73,11 @@ class PersonnalContent
      */
     private string $picture;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $summary = "";
+
     public function getId(): ?int
     {
         return $this->id;
@@ -206,6 +211,18 @@ class PersonnalContent
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getSummary(): ?string
+    {
+        return $this->summary;
+    }
+
+    public function setSummary(string $summary): self
+    {
+        $this->summary = $summary;
 
         return $this;
     }
