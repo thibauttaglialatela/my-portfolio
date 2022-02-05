@@ -4,44 +4,25 @@
         <span class="fs-4">Barre latérale</span>
     </a>
     <hr>
+    {% set links = [
+        {'title': 'Accueil', 'path': 'admin_home_index'},
+        {'title': 'Projets', 'path': 'admin_project_index'},
+        {'title': 'Formations', 'path': 'admin_formation_index'},
+        {'title': 'Compétences', 'path': 'admin_home_index'},
+        {'title': 'Hobby', 'path': 'admin_home_index'},
+        {'title': 'données personnelles', 'path': 'admin_home_index'},
+        {'title': 'Déconnection', 'path': 'app_logout'},
+    ] %}
     <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-            <a href="{{ path('admin_home_index') }}" class="nav-link active" aria-current="page">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                Home
-            </a>
-        </li>
-        <li>
-            <a href="{{ path('admin_project_index') }}" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                Projets
-            </a>
-        </li>
-        <li>
-            <a href="{{ path('admin_formation_index') }}" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                Formations
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                Compétences
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                Passions
-            </a>
-        </li>
-        <li>
-            <a href="{{ path('app_logout') }}" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                Se déconnecter
-            </a>
-        </li>
+        {% for link in links %}
+            <li class="nav-item">
+                <a href="{{ path(link.path) }}"
+                   class="nav-link {{ app.request.pathinfo == path(link.path) ? 'active' }}"
+                        {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }}>
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                    {{ link.title }}
+                </a>
+            </li>
+        {% endfor %}
     </ul>
-
-
 </div>
