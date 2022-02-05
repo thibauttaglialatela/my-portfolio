@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}PersonnalContent index{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-center">Mes infos personnelles</h1>
+
+    <table class="table-responsive table">
+        <thead class="table-responsive-danger">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de naissance</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Code postal</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Lien Github</th>
+                <th>Linkedin</th>
+                <th>Picture</th>
+                <th>Summary</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnal_content in personnal_contents %}
+            <tr>
+                <td>{{ personnal_content.lastname }}</td>
+                <td>{{ personnal_content.firstname }}</td>
+                <td>{{ personnal_content.birthday ? personnal_content.birthday|date('d-m-Y') : '' }}</td>
+                <td>{{ personnal_content.adress }}</td>
+                <td>{{ personnal_content.town }}</td>
+                <td>{{ personnal_content.zipCode }}</td>
+                <td>{{ personnal_content.phoneNumber }}</td>
+                <td>{{ personnal_content.email }}</td>
+                <td>{{ personnal_content.githubLink }}</td>
+                <td>{{ personnal_content.linkedin }}</td>
+                <td>{{ personnal_content.picture }}</td>
+                <td>{{ personnal_content.summary }}</td>
+                <td>
+                    <a href="{{ path('admin_personnal_content_edit', {'id': personnal_content.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

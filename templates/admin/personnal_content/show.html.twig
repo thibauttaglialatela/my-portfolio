@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonnalContent{% endblock %}
+
+{% block body %}
+    <h1>PersonnalContent</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personnal_content.id }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ personnal_content.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ personnal_content.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{{ personnal_content.birthday ? personnal_content.birthday|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ personnal_content.adress }}</td>
+            </tr>
+            <tr>
+                <th>Town</th>
+                <td>{{ personnal_content.town }}</td>
+            </tr>
+            <tr>
+                <th>Zip_code</th>
+                <td>{{ personnal_content.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>Phone_number</th>
+                <td>{{ personnal_content.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ personnal_content.email }}</td>
+            </tr>
+            <tr>
+                <th>Github_link</th>
+                <td>{{ personnal_content.githubLink }}</td>
+            </tr>
+            <tr>
+                <th>Linkedin</th>
+                <td>{{ personnal_content.linkedin }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ personnal_content.picture }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ personnal_content.summary }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('personnal_content_index') }}">back to list</a>
+
+    <a href="{{ path('personnal_content_edit', {'id': personnal_content.id}) }}">edit</a>
+
+    {{ include('personnal_content/_delete_form.html.twig') }}
+{% endblock %}

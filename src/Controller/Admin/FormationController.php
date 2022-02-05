@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Category;
 use App\Entity\Content;
 use App\Form\ContentType;
 use App\Repository\CategoryRepository;
