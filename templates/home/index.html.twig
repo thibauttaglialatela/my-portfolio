@@ -4,18 +4,22 @@
 
 {% block body %}
     <h1 class="text-center text-uppercase text-light">Mon portfolio</h1>
-    <div class="card shadow-lg">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="{{ my_profile.picture }}" class="img-fluid" alt="...">
-            </div>
-            <div class="col-md-6">
-                <div class="card-body">
-                    <p class="card-text">{{ my_profile.summary }}</p>
-                    <p class="card-text">{{ my_profile.firstname }} {{ my_profile.lastname }}</p>
+    <article class="d-flex justify-content-center align-items-center">
+        <div class="card rounded-end container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-12">
+                    <img src="{{ my_profile.picture }}" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card-body">
+                        <p class="card-text">{{ my_profile.summary }}</p>
+                        <p class="card-text">{{ my_profile.firstname }} {{ my_profile.lastname }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </article>
+
 
 
     </div>

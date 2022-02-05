@@ -51,16 +51,6 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(Project $project): Response
-    {
-        return $this->render('project/show.html.twig', [
-            'project' => $project,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="edit", methods={"GET", "POST"})
      * @ParamConverter("project", options= {"mapping": {"id": "id"}})
      */
