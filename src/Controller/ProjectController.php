@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/project", name="project_")
@@ -30,6 +31,7 @@ class ProjectController extends AbstractController
 
     /**
      * @Route("/{id}", name="show", methods={"GET"})
+     * @ParamConverter ("project", class="App\Entity\Project")
      */
     public function show(Project $project): Response
     {

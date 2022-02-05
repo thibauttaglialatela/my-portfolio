@@ -24,7 +24,7 @@ class HomeController extends AbstractController
 
 
         return $this->render('home/index.html.twig', [
-            'my_profile' => $personnalContentRepository->findAll(),
+            'my_profile' => $personnalContentRepository->findOneBy([]),
             'projects' => $projectRepository->findBy([], ['date' => 'ASC'], 3),
         ]);
     }
