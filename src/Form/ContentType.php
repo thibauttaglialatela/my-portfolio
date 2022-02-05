@@ -20,7 +20,8 @@ class ContentType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('date', DateType::class, [
-                'format' => 'dd-MM-yyyy'
+                'format' => 'dd-MM-yyyy',
+                'years' => range(1996, 2027)
             ])
             ->add('description', TextareaType::class, [
                 'attr' => ['rows' => 10,]

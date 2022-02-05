@@ -14,12 +14,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProjectType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class)
             ->add('date', DateType::class, [
-                'format' => 'd-MMMM-y'
+                'format' => 'd-MM-y',
             ])
             ->add('github_link', UrlType::class)
             ->add('website', UrlType::class,)
