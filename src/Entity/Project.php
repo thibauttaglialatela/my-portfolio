@@ -33,7 +33,6 @@ class Project
     /**
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank()
-     * @Assert\DateTime(format="d-m-Y")
      */
     private DateTime $date;
 

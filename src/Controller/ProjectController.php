@@ -30,7 +30,8 @@ class ProjectController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/show/{id}", name="show", methods={"GET"})
+     * @ParamConverter ("project", class="App\Entity\Project", options={"mapping": {"id": "id"}})
      */
     public function show(Project $project): Response
     {

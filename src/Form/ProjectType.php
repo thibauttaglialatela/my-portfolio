@@ -19,7 +19,7 @@ class ProjectType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('date', DateType::class, [
-                'format' => 'd-MM-y',
+                'widget' => 'single_text',
             ])
             ->add('github_link', UrlType::class)
             ->add('website', UrlType::class,)
