@@ -19,8 +19,9 @@ class ContentType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('date', DateType::class, [
+                'widget' => 'single_text',
+                'input' => 'string',
                 'format' => 'dd-MM-yyyy',
-                'years' => range(1996, 2027)
             ])
             ->add('description', CKEditorType::class, [
                 'attr' => ['rows' => 10,]
