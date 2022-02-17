@@ -38,7 +38,7 @@ class Content
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private string $description = "";
+    private string $description;
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */

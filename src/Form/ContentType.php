@@ -20,8 +20,6 @@ class ContentType extends AbstractType
             ->add('name', TextType::class)
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
-                'input' => 'string',
-                'format' => 'dd-MM-yyyy',
             ])
             ->add('description', CKEditorType::class, [
                 'attr' => ['rows' => 10,]

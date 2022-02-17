@@ -51,16 +51,6 @@ class SkillsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(Content $content): Response
-    {
-        return $this->render('admin/skills/show.html.twig', [
-            'content' => $content,
-        ]);
-    }
-
-    /**
      * @Route ("/{id}/edit", name="edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Content $content, EntityManagerInterface $entityManager): Response
