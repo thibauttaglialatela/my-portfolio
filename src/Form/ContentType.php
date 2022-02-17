@@ -23,7 +23,7 @@ class ContentType extends AbstractType
             ])
             ->add('description', CKEditorType::class, [
                 'attr' => ['rows' => 10,],
-                'config_name' => 'light',
+                'config_name' => 'full',
             ])
             ->add('localisation', TextType::class)
             ->add('category', EntityType::class, [

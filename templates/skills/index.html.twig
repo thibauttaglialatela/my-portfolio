@@ -8,11 +8,11 @@
         {% for skill in skills %}
             <div class="row">
                 <div class="card offset-2 col-8 my-4">
-                    <div class="card-header text-center">
+                    <div class="card-header text-center text-decoration-underline fs-2">
                         {{ skill.name }}
                     </div>
                     <div class="card-body">
-                        <p class="card-text">{{ skill.description }}</p>
+                        <p class="card-text">{{ skill.description|raw }}</p>
                     </div>
                 </div>
             </div>
