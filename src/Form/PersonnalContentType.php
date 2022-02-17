@@ -34,7 +34,10 @@ class PersonnalContentType extends AbstractType
             ->add('picture', TextType::class,
                 ['label' => 'Ma photo'])
             ->add('summary', CKEditorType::class,
-            ['attr' => ['row'=> 20]])
+            ['attr' => ['row'=> 10],
+                'label' => 'description',
+                'config_name' => 'full',
+                ])
         ;
     }
 

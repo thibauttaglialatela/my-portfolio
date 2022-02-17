@@ -22,7 +22,8 @@ class ContentType extends AbstractType
                 'widget' => 'single_text',
             ])
             ->add('description', CKEditorType::class, [
-                'attr' => ['rows' => 10,]
+                'attr' => ['rows' => 10,],
+                'config_name' => 'light',
             ])
             ->add('localisation', TextType::class)
             ->add('category', EntityType::class, [
