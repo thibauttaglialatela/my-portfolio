@@ -20,7 +20,7 @@ class SkillsController extends AbstractController
     {
         $catSkill = $categoryRepository->findOneBy(['name' => 'skill']);
         return $this->render('skills/index.html.twig', [
-            'skills' => $contentRepository->findBy(['category' => $catSkill])
+            'skills' => $contentRepository->findBy(['category' => $catSkill], ['date' => 'ASC'])
         ]);
     }
 }
