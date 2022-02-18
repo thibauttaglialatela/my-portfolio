@@ -25,3 +25,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   color: color-contrast(rgba(0, 0, 0, 0.25), $color-contrast-light);
 }
+
+.shadow-lg {
+  box-shadow: 16px 1rem 2rem 0px rgb(252 252 252 / 50%) !important;
+}

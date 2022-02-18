@@ -3,11 +3,11 @@
 {% block title %}{{ parent() }} - Reward{% endblock %}
 
 {% block body %}
-    <h1 class="text-light text-center text-uppercase">Mes diplome</h1>
+    <h1 class="text-light text-center text-uppercase">Mes diplômes</h1>
     <section class="container-fluid">
         {% for reward in rewards %}
             <div class="row">
-                <div class="card offset-2 col-8 my-4">
+                <div class="card offset-2 col-8 my-4 shadow-lg">
                     <div class="card-header text-center text-decoration-underline fs-2">
                         {{ reward.name }}
                     </div>
