@@ -1,9 +1,9 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Project index{% endblock %}
+{% block title %}{{ parent() }} - Projets{% endblock %}
 
 {% block body %}
-    <h1>Project index</h1>
+    <h1 class="text-center text-light text-uppercase">Liste des projets</h1>
 
     <table class="table">
         <thead>
@@ -26,7 +26,6 @@
                 <td>{{ project.description }}</td>
                 <td>
                     <a href="{{ path('admin_project_edit', {'id': project.id}) }}">éditer</a>
-                    <a href="{{ path('project_show', {'id': project.id}) }}">Voir</a>
                 </td>
             </tr>
         {% else %}
