@@ -26,7 +26,7 @@
             {% for project in projects %}
 
                 <div class="card mx-2 mb-4 shadow-lg mb-3">
-                    <img src="{{ project.image }}" class="card-img-top" alt="...">
+                    <img src="{{ vich_uploader_asset(project) }}" class="card-img-top" alt="{{ project.name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ project.name }}</h5>
                         <p class="card-text">Projet achevé le {{ project.date|format_date('short', locale='fr') }}</p>

@@ -9,7 +9,7 @@
         <div class="card card-show my-4 shadow-lg">
             <img src="{{ vich_uploader_asset(project) }}" alt="{{ project.name }}" class="card-img-top img-fluid ">
             <article class="card-body">
-                <p class="card-text">{{ project.description }}</p>
+                <p class="card-text">{{ project.description|raw }}</p>
                 <div class="d-flex flex-row justify-content-evenly">
                     <a href="{{ project.githublink }}" class="card-link">Lien GitHub : {{ project.githublink }}</a>
                     <a href="{{ project.website }}" class="card-link">Site web : {{ project.website }}</a>

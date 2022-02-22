@@ -28,7 +28,6 @@ class ProjectType extends AbstractType
             ->add('image', TextType::class)
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
-                'allow_delete' => true,
             ])
             ->add('description', CKEditorType::class,
             ['attr' => ['row' => 10]

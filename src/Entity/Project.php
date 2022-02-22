@@ -57,14 +57,15 @@ class Project
      *     mimeTypes = {"image/jpeg", "image/png", "image/webp"},
      *     mimeTypesMessage="Please upload a valid image",
      *     )
+     * @var ?File
      */
-    private ?File $imageFile;
+    private ?File $imageFile = null;
 
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image;
+    private ?string $image = "";
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -174,15 +175,16 @@ class Project
     }
 
     /**
-     * @param File $imageFile
+     * @param File|null $imageFile
+     * @return Project
      */
-    public function setImageFile(?File $imageFile = null): void
+    public function setImageFile(?File $imageFile = null): self
     {
         $this->imageFile = $imageFile;
-
-        if (null !== $imageFile) {
+        if ($imageFile) {
             $this->updatedAt = new DateTime('now');
         }
+        return  $this;
     }
 
 
