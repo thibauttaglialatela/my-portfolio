@@ -7,7 +7,7 @@
 {% dump(project) %}
     <article class="d-flex justify-content-center align-items-center">
         <div class="card card-show my-4 shadow-lg">
-            <img src="{{ project.image }}" alt="" class="card-img-top img-fluid ">
+            <img src="{{ vich_uploader_asset(project) }}" alt="{{ project.name }}" class="card-img-top img-fluid ">
             <article class="card-body">
                 <p class="card-text">{{ project.description }}</p>
                 <div class="d-flex flex-row justify-content-evenly">

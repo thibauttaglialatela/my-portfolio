@@ -6,9 +6,12 @@ use App\Repository\ProjectRepository;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @Vich\Uploadable
  */
 class Project
 {
@@ -48,6 +51,17 @@ class Project
     private string $website;
 
     /**
+     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="image")
+     * @Assert\File(
+     *     maxSize = "5M",
+     *     mimeTypes = {"image/jpeg", "image/png", "image/webp"},
+     *     mimeTypesMessage="Please upload a valid image",
+     *     )
+     */
+    private ?File $imageFile;
+
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private string $image;
@@ -56,6 +70,11 @@ class Project
      * @ORM\Column(type="text", nullable=true)
      */
     private string $description;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private ?DateTime $updatedAt;
 
     public function getId(): ?int
     {
@@ -79,7 +98,7 @@ class Project
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(DateTime $date): self
     {
         $this->date = $date;
 
@@ -133,4 +152,38 @@ class Project
 
         return $this;
     }
+
+    public function getUpdatedAt(): ?DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+
 }
