@@ -6,6 +6,7 @@ use App\Repository\PersonnalContentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
+//TODO: faire l'upload de ma photo'
 /**
  * @ORM\Entity(repositoryClass=PersonnalContentRepository::class)
  */

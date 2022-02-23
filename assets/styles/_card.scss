@@ -29,3 +29,11 @@
 .shadow-lg {
   box-shadow: 16px 1rem 2rem 0px rgb(252 252 252 / 50%) !important;
 }
+
+.card-img-top {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
