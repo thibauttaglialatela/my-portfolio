@@ -14,7 +14,6 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProjectType extends AbstractType
 {
-//    TODO: rajouter le téléchargement de fichier
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

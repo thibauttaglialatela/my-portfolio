@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PersonnalContentType extends AbstractType
 {
@@ -31,8 +32,12 @@ class PersonnalContentType extends AbstractType
                 ['label' => 'GitHub'])
             ->add('linkedin', TextType::class,
                 ['label' => 'LikedIn'])
-            ->add('picture', TextType::class,
-                ['label' => 'Ma photo'])
+        /*    ->add('picture', TextType::class,
+                ['label' => 'Ma photo'])*/
+            ->add('pictureFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
+            ])
             ->add('summary', CKEditorType::class,
             ['attr' => ['row'=> 10],
                 'label' => 'description',

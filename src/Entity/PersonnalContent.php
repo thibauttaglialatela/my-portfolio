@@ -5,10 +5,13 @@ namespace App\Entity;
 use App\Repository\PersonnalContentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
-//TODO: faire l'upload de ma photo'
 /**
  * @ORM\Entity(repositoryClass=PersonnalContentRepository::class)
+ * @Vich\Uploadable
  */
 class PersonnalContent
 {
@@ -32,7 +35,7 @@ class PersonnalContent
     /**
      * @ORM\Column(type="datetime")
      */
-    private  DateTime $birthday;
+    private DateTime $birthday;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -72,7 +75,24 @@ class PersonnalContent
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $picture;
+    private ?string $picture = "";
+
+    /**
+     * @Vich\UploadableField (mapping="poster_file", fileNameProperty="picture")
+     * @Assert\File(
+     *     maxSize = "5M",
+     *     mimeTypes = {"image/jpeg", "image/png", "image/webp"},
+     *     mimeTypesMessage="Please upload a valid image",
+     *     )
+     * @var ?File
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column (type="datetime", nullable=true)
+     * @var DateTime|null
+     */
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="text")
@@ -225,6 +245,37 @@ class PersonnalContent
     {
         $this->summary = $summary;
 
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param File $pictureFile
+     */
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if ($pictureFile) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getUpdatedAt(): ?DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 
