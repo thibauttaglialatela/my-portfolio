@@ -24,7 +24,6 @@ class ProjectType extends AbstractType
             ])
             ->add('github_link', UrlType::class)
             ->add('website', UrlType::class,)
-            ->add('image', TextType::class)
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
             ])
