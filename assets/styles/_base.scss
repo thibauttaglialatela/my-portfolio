@@ -11,3 +11,12 @@ body {
   color: $primary-color;
 }
 
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #212529;
+  text-decoration: none;
+  background-color: inherit;
+}
+
