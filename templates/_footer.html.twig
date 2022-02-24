@@ -1,5 +1,5 @@
     <footer class="row row-cols-5 py-5 bg-light container-fluid mt-auto">
-        <div class="col">
+        <div class="col-4">
             <h3>A propos de moi</h3>
             <p>
                 Nouveau venu dans le monde du développement informatique, doué d'un esprit curieux et ouvert, je suis
@@ -9,35 +9,23 @@
 
         </div>
 
-        <div class="col d-flex flex-column justify-content-end align-items-center">
-            <p class="text-muted">© {{ "now"|date('Y') }} Taglialatela</p>
+        <div class="col-4 d-flex flex-column justify-content-end align-items-center">
+            <h3 class="text-muted">© {{ "now"|date('Y') }} Taglialatela</h3>
         </div>
 
-        <div class="col d-flex flex-column">
-            <h5>Mes réseaux</h5>
+        <div class="col-4 d-flex flex-column">
+            <h3>Mes réseaux</h3>
             <ul class="nav d-flex flex-column mt-auto">
                 <li class="nav-item mb-2">
                     <a href="https://github.com/thibauttaglialatela" class="navbar-brand p-0 text-muted">
-                        <img src="https://img.icons8.com/glyph-neue/64/000000/github.png"/>
+                        <img src={{ asset('build/images/icons8-github.svg')}} alt="Github">
                     </a>
-                    <a href="https://icons8.com/icon/3tC9EQumUAuq/github">GitHub icon by Icons8</a>
                 </li>
                 <li class="nav-item mb-2">
                     <a href="https://www.linkedin.com/in/thibauttaglialatela/" class="navbar-brand p-0 text-muted">
                         <img src={{ asset('build/images/icon-linkedin.svg')}} alt="linkedin">
                     </a>
                 </li>
-            </ul>
-        </div>
-
-
-
-        <div class="col d-flex flex-column justify-content-end align-items-end">
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Compétences</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Mes projets</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Mon parcours</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Mes passions</a></li>
             </ul>
         </div>
     </footer>
