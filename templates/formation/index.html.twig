@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Formations{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-uppercase text-light">Mon parcours</h1>
+    <section class="container-fluid">
+        {% for formation in formations %}
+            <div class="row">
+                <div class="card offset-2 col-8 my-4 shadow-lg">
+                    <div class="card-header text-center text-decoration-underline fs-2">
+                        {{ formation.name }}
+                    </div>
+                    <div class="card-body d-flex flex-row justify-content-between">
+                        <p class="card-text">{{ formation.date|format_date("full", locale="fr") }}</p>
+                        <a href="{{ path("formation_show", {"id" : formation.id}) }}" class="btn btn-info">Découvrir la formation</a>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+
+    </section>
+
+{% endblock %}

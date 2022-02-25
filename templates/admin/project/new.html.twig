@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New Project{% endblock %}
+
+{% block body %}
+    <section class="d-flex flex-column align-items-center justify-content-center">
+        <h1 class="text-light text-uppercase">Créer un nouveau projet</h1>
+
+        {{ include('admin/project/_form.html.twig') }}
+
+        <a href="{{ path('admin_project_index') }}">Retour à la liste des projets</a>
+    </section>
+
+{% endblock %}

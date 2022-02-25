@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edit PersonnalContent{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-center text-uppercase">éditer mes informations personnelles</h1>
+
+    {{ include('admin/personnal_content/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_personnal_content_index') }}">Retour</a>
+
+{% endblock %}

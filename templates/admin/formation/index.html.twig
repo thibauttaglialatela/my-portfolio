@@ -1,0 +1,40 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Formation index{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-uppercase">Liste des formations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Localisation</th>
+                <th>Catégorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.name }}</td>
+                <td>{{ formation.date ? formation.date|date('d-m-Y') : '' }}</td>
+                <td>{{ formation.description }}</td>
+                <td>{{ formation.localisation }}</td>
+                <td>{{ formation.category }}</td>
+                <td>
+                    <a href="{{ path('admin_formation_edit', {'id': formation.id}) }}">éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_formation_new') }}">Créer une nouvelle formation</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+    <footer class="row row-cols-5 py-5 bg-light container-fluid mt-auto">
+        <div class="col-4">
+            <h3>A propos de moi</h3>
+            <p>
+                Nouveau venu dans le monde du développement informatique, doué d'un esprit curieux et ouvert, je suis
+                doté de bonnes capacités d'adaptation. J'apprécie de me fonder dans un groupe, capacité acquise au cours
+                de mes nombreuses années d'orchestre.
+            </p>
+
+        </div>
+
+        <div class="col-4 d-flex flex-column justify-content-end align-items-center">
+            <h3 class="text-muted">© {{ "now"|date('Y') }} Taglialatela</h3>
+        </div>
+
+        <div class="col-4 d-flex flex-column">
+            <h3>Mes réseaux</h3>
+            <ul class="nav d-flex flex-column mt-auto">
+                <li class="nav-item mb-2">
+                    <a href="https://github.com/thibauttaglialatela" class="navbar-brand p-0 text-muted">
+                        <img src={{ asset('build/images/icons8-github.svg')}} alt="Github">
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="https://www.linkedin.com/in/thibauttaglialatela/" class="navbar-brand p-0 text-muted">
+                        <img src={{ asset('build/images/icon-linkedin.svg')}} alt="linkedin">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>

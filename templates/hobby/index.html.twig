@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Hobby{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-center text-uppercase">Mes passions</h1>
+    <section class="container-fluid">
+        {% for hobby in hobbies %}
+            <div class="row">
+                <div class="card offset-2 col-8 my-4 shadow-lg">
+                    <div class="card-header text-center text-decoration-underline fs-2">
+                        {{ hobby.name }}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ hobby.description|raw }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </section>
+
+
+{% endblock %}
+

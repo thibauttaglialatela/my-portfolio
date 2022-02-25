@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+    <h1 class="text-uppercase text-light text-center">{{ project.name }}</h1>
+{% dump(project) %}
+    <article class="d-flex justify-content-center align-items-center">
+        <div class="card card-show my-4 shadow-lg">
+            <img src="{{ vich_uploader_asset(project) }}" alt="{{ project.name }}" class="card-img-top img-fluid ">
+            <article class="card-body">
+                <p class="card-text">{{ project.description|raw }}</p>
+                <div class="d-flex flex-row justify-content-around card-footer">
+                    <a href="{{ project.githublink }}" class="card-link">Lien GitHub : {{ project.githublink }}</a>
+                    <a href="{{ project.website }}" class="card-link">Site web : {{ project.website }}</a>
+                </div>
+                <a href="{{ path("project_index") }}" class="btn btn-outline-info">Retour à la liste des projets</a>
+            </article>
+        </div>
+    </article>
+
+
+{% endblock %}

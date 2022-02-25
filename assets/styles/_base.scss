@@ -1,0 +1,22 @@
+body {
+  background-color: $primary-color;
+  padding-top: 100px;
+}
+
+.text-light {
+  color: $third-color;
+}
+
+.text-dark {
+  color: $primary-color;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #212529;
+  text-decoration: none;
+  background-color: inherit;
+}
+

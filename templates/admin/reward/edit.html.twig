@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Edition d'un diplôme{% endblock %}
+
+{% block body %}
+    <h1 class="text-uppercase text-light">éditer un diplôme</h1>
+
+    {{ include('admin/reward/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('admin/reward/_delete_form.html.twig') }}
+    <a href="{{ path('admin_reward_index') }}">Revenir à la liste</a>
+{% endblock %}

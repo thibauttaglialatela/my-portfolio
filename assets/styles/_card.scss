@@ -1,0 +1,39 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 70vw;
+  word-wrap: break-word;
+  background-color: $secondary-color;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card-show {
+  width: 50vw;
+}
+
+.card a {
+  color:#00004D;
+}
+.card-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  color: color-contrast(rgba(0, 0, 0, 0.25), $color-contrast-light);
+}
+
+.shadow-lg {
+  box-shadow: 16px 1rem 2rem 0 rgb(252 252 252 / 50%) !important;
+}
+
+.card-img-top {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

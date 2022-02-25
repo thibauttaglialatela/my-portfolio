@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New skills{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-uppercase text-center">Rajouter une passion</h1>
+
+    {{ include('admin/hobby/_form.html.twig') }}
+
+    <a href="{{ path('admin_hobby_index') }}">Revenir à la liste des hobbys</a>
+{% endblock %}

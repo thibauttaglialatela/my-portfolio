@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Rewards{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-uppercase">Liste de mes diplômes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Catégorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reward in rewards %}
+            <tr>
+                <td>{{ reward.name }}</td>
+                <td>{{ reward.date ? reward.date|date('d-m-Y') : '' }}</td>
+                <td>{{ reward.description }}</td>
+                <td>{{ reward.category }}</td>
+                <td>
+                    <a href="{{ path('admin_reward_edit', {'id': reward.id}) }}">éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_reward_new') }}">Ajouter un nouveau diplôme</a>
+{% endblock %}

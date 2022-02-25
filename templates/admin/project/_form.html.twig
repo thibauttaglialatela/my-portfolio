@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+{{ form_row(form.name, {'label': 'Nom du projet'}) }}
+{{ form_row(form.date, {'label': 'Date'}) }}
+{{ form_row(form.github_link, {'label': 'Lien GitHub'}) }}
+{{ form_row(form.website, {'label': 'Site web'}) }}
+{{ form_row(form.imageFile, {'label': 'illustration'}) }}
+{{ form_row(form.description, {'label': 'Une description du projet'}) }}
+    <button class="btn btn-success m-2">{{ button_label|default('Enregister le projet') }}</button>
+{{ form_end(form) }}
