@@ -8,7 +8,12 @@
         <div class="card rounded-end container-fluid shadow-lg mb-5">
             <div class="row">
                 <div class="col-md-6 col-12">
-                    <img src="{{ vich_uploader_asset(my_profile) }}" class="img-fluid" alt="{{ my_profile.lastname }}">
+                    {% if vich_uploader_asset(my_profile) %}
+                        <img src="{{ vich_uploader_asset(my_profile) }}" class="img-fluid" alt="{{ my_profile.lastname }}">
+                        {% else %}
+                            <img src="https://picsum.photos/id/104/300/300" class="img-fluid" alt="dreamcatcher">
+                    {% endif %}
+
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="card-body">
