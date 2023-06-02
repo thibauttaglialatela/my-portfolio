@@ -9,9 +9,10 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     {% if vich_uploader_asset(my_profile) %}
-                        <img src="{{ vich_uploader_asset(my_profile) }}" class="img-fluid" alt="{{ my_profile.lastname }}">
-                        {% else %}
-                            <img src="https://picsum.photos/id/104/300/300" class="img-fluid" alt="dreamcatcher">
+                        <img src="{{ vich_uploader_asset(my_profile) }}" class="img-fluid"
+                             alt="{{ my_profile.lastname }}">
+                    {% else %}
+                        <img src="https://picsum.photos/id/104/300/300" class="img-fluid" alt="dreamcatcher">
                     {% endif %}
 
                 </div>
@@ -34,16 +35,17 @@
         <h2 class="text-center text-uppercase text-light">mes projets récents</h2>
         <div class="card-group">
             {% for project in projects %}
-                <div class="card mx-4 mb-4 shadow-lg mb-3">
-                    {{ dump(project) }}
+                <div class="card mx-4 mb-4 shadow-lg mb-4">
                     {% if project.imageFile %}
-                        <img src="{{ vich_uploader_asset(project) }}" class="card-img-top" alt="{{ project.name }}">
+                        <img src="{{ vich_uploader_asset(project) }}" class="card-img-top img-fluid" alt="{{ project.name }}">
                     {% else %}
-                        <img src="https://picsum.photos/200/300" alt="image picsum aléatoire">
+                        <img src="https://picsum.photos/100/" class="card-img-top img-fluid" alt="image picsum aléatoire">
                     {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ project.name }}</h5>
-                        <p class="card-text">Projet achevé le {{ project.date|format_date('short', locale='fr') }}</p>
+                    <div class="card-body d-flex flex-column justify-content-around align-items-center">
+                        <div class="d-flex flex-row justify-content-between">
+                            <h5 class="card-title">{{ project.name }}</h5>
+                        </div>
+                        <a href="{{ path('project_show', {'id': project.id}) }}" class="btn btn-outline-info">En savoir plus</a>
                     </div>
                 </div>
             {% endfor %}
