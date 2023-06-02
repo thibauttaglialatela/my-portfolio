@@ -1,29 +1,31 @@
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-light fixed-top navbar-expand-lg">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <span class="fs-4">Thibaut TAGLIALATELA</span>
-    </a>
+<header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Fifth navbar example">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Thibaut Taglialatela</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
+                aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% set links = [
+                    {'title': 'Accueil', 'path': 'home_index'},
+                    {'title': 'Compétences', 'path': 'skills_index'},
+                    {'title': 'Mes projets', 'path': 'project_index'},
+                    {'title': 'Mon parcours', 'path': 'formation_index'},
+                    {'title': 'Mes diplômes', 'path': 'reward_index'},
+                    {'title': 'Mes passions', 'path': 'hobby_index'},
+                ] %}
+                {% for link in links %}
+                    <li class="nav-item">
+                        <a class="nav-link hover {{ app.request.pathinfo == path(link.path) ? 'active' }}"
+                                {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }}
+                           href="{{ path(link.path) }}">{{ link.title }}</a>
+                    </li>
+                {% endfor %}
 
-    <ul class="nav nav-pills">
-        {% set links = [
-            {'title': 'Accueil', 'path': 'home_index'},
-            {'title': 'Compétences', 'path': 'skills_index'},
-            {'title': 'Mes projets', 'path': 'project_index'},
-            {'title': 'Mon parcours', 'path': 'formation_index'},
-            {'title': 'Mes diplômes', 'path': 'reward_index'},
-            {'title': 'Mes passions', 'path': 'hobby_index'},
-        ] %}
 
-        {% for link in links %}
-            <li class="nav-item mx-4 my-auto">
-                <a class="nav-link text-decoration-none hover {{ app.request.pathinfo == path(link.path) ? 'active' }}"
-                        {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }} href="{{ path(link.path) }}">
-                    {{ link.title }}
-                </a>
-            </li>
-        {% endfor %}
-
-    </ul>
-
-
+            </ul>
+        </div>
+    </div>
 </header>
 
