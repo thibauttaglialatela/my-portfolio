@@ -34,16 +34,18 @@
         <h2 class="text-center text-uppercase text-light">mes projets récents</h2>
         <div class="card-group">
             {% for project in projects %}
-
                 <div class="card mx-4 mb-4 shadow-lg mb-3">
-                    <img src="{{ vich_uploader_asset(project) }}" class="card-img-top" alt="{{ project.name }}">
+                    {{ dump(project) }}
+                    {% if project.imageFile %}
+                        <img src="{{ vich_uploader_asset(project) }}" class="card-img-top" alt="{{ project.name }}">
+                    {% else %}
+                        <img src="https://picsum.photos/200/300" alt="image picsum aléatoire">
+                    {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ project.name }}</h5>
                         <p class="card-text">Projet achevé le {{ project.date|format_date('short', locale='fr') }}</p>
                     </div>
                 </div>
-
-
             {% endfor %}
         </div>
 
