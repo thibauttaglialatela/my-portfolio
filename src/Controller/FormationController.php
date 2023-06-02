@@ -20,7 +20,7 @@ class FormationController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository, ContentRepository $contentRepository): Response
     {
-        $catFormation = $categoryRepository->findOneBy(['name' => 'formation']);
+        $catFormation = $categoryRepository->findOneBy(['name' => 'Training']);
 
         return $this->render('formation/index.html.twig', [
             'formations' => $contentRepository->findBy(['category' => $catFormation], ['date' => 'DESC'])

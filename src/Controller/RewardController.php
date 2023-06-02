@@ -18,7 +18,7 @@ class RewardController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository, ContentRepository $contentRepository): Response
     {
-        $catReward = $categoryRepository->findOneBy(['name' => 'reward']);
+        $catReward = $categoryRepository->findOneBy(['name' => "Degree"]);
         $rewards = $contentRepository->findBy(['category' => $catReward], ['date' => 'DESC']);
 
         return $this->render('reward/index.html.twig', ['rewards' => $rewards]);

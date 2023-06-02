@@ -18,7 +18,7 @@ class HobbyController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository, ContentRepository $contentRepository): Response
     {
-        $catHobby = $categoryRepository->findOneBy(['name' => 'hobby']);
+        $catHobby = $categoryRepository->findOneBy(['name' => 'Hobby']);
         $hobbies = $contentRepository->findBy(['category' => $catHobby]);
 
         return $this->render('hobby/index.html.twig', [
