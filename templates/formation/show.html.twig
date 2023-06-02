@@ -7,15 +7,18 @@
     <section class="container-fluid">
         <div class="row">
             <article class="col-12 mx-auto card shadow-lg">
+                <h2 class="card-title">Descriptif</h2>
                 <p class="card-text">{{ content.description|raw }}</p>
                 <div class="card-footer d-flex flex-row justify-content-between">
                     <h5 class="card-text">{{ content.date|format_date("full", locale="fr")  }}</h5>
                     <h5 class="card-text">{{ content.localisation }}</h5>
                 </div>
+                <div class="text-center">
+                    <a href="{{ path('formation_index') }}" class="btn btn-info">retour à la liste</a>
+                </div>
             </article>
         </div>
-    </section>
 
-    <a href="{{ path('formation_index') }}" class="mt-auto">retour à la liste</a>
+    </section>
 
 {% endblock %}
