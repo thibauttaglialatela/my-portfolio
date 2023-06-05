@@ -1,31 +1,24 @@
-    <footer class="row row-cols-5 py-5 bg-light container-fluid mt-auto">
-        <div class="col-4">
-            <h3>A propos de moi</h3>
-            <p>
-                Nouveau venu dans le monde du développement informatique, doué d'un esprit curieux et ouvert, je suis
-                doté de bonnes capacités d'adaptation. J'apprécie de me fonder dans un groupe, capacité acquise au cours
-                de mes nombreuses années d'orchestre.
-            </p>
+ <footer class="bg-light text-center">
+     <!-- Grid container -->
+     <div class="container p-2">
 
-        </div>
+         <!-- Section: Social media -->
+         <section class="mb-0">
+             <!-- Linkedin -->
+             <a class="btn btn-primary btn-floating m-1 rounded-circle" style="background-color: #0082ca" href="https://www.linkedin.com/in/thibauttaglialatela/" role="button"><i class="fab fa-linkedin-in"></i></a>
+             <!-- Github -->
+             <a class="btn btn-primary btn-floating m-1 rounded-circle" style="background-color: #333333" href="https://github.com/thibauttaglialatela"  role="button"><i class="fab fa-github"></i></a>
+         </section>
+         <!-- Section: Social media -->
 
-        <div class="col-4 d-flex flex-column justify-content-end align-items-center">
-            <h3 class="text-muted">© {{ "now"|date('Y') }} Taglialatela</h3>
-        </div>
+     </div>
+     <!-- Grid container -->
 
-        <div class="col-4 d-flex flex-column">
-            <h3>Mes réseaux</h3>
-            <ul class="nav d-flex flex-column mt-auto">
-                <li class="nav-item mb-2">
-                    <a href="https://github.com/thibauttaglialatela" class="navbar-brand p-0 text-muted">
-                        <img src={{ asset('build/images/icons8-github.svg')}} alt="Github">
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="https://www.linkedin.com/in/thibauttaglialatela/" class="navbar-brand p-0 text-muted">
-                        <img src={{ asset('build/images/icon-linkedin.svg')}} alt="linkedin">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+     <!-- Copyright -->
+     <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2)">
+         © {{ "now"|date('Y') }} Taglialatela
+     </div>
+     <!-- Copyright -->
+
+ </footer>
+ <!-- Footer -->
