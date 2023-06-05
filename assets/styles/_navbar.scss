@@ -12,3 +12,20 @@
   color: #fff;
   background-color: $secondary-color;
 }
+
+.navbar-dark {
+  .navbar-nav {
+    .nav-link.active,
+    .show > .nav-link {
+      color: #242424;
+    }
+  }
+}
+
+.nav-pills {
+  .nav-link.active,
+  .show > .nav-link {
+    background-color: #FF9800;
+    color: #242424;
+  }
+}
