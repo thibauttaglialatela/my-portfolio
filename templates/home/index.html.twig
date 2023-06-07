@@ -1,55 +1,93 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ parent() }} - Home{% endblock %}
-
 {% block body %}
-    <h1 class="text-center text-uppercase text-light">Mon portfolio</h1>
-    <article class="d-flex justify-content-center align-items-center">
-        <div class="card rounded-end container-fluid shadow-lg mb-5">
-            <div class="row">
-                <div class="col-md-6 col-12">
-                    {% if vich_uploader_asset(my_profile) %}
+    <!-- Header-->
+    <header class="py-5">
+        <div class="container px-5 pb-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-xxl-5">
+                    <!-- Header text content-->
+                    <div class="text-center text-xxl-start">
+                        <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
+                            <div class="text-uppercase">Développeur Web et Web mobile orienté Backend sur Symfony</div>
+                        </div>
+                        <h1 class="display-3 fw-bolder mb-5 text-white"><span class="text-gradient d-inline">Bienvenue sur mon portfolio</span>
+                        </h1>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xxl-7">
+                    <!-- Header profile picture-->
+                    <div class="d-flex justify-content-center mt-5 mt-xxl-0">
+                        <div class="profile bg-gradient-primary-to-secondary">
+                            <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
+                            <!-- Watch a tutorial on how to do this on YouTube (link)-->
+                            {% if vich_uploader_asset(my_profile) %}
                         <img src="{{ vich_uploader_asset(my_profile) }}" class="img-fluid"
                              alt="{{ my_profile.lastname }}">
-                    {% else %}
-                        <img src="https://picsum.photos/id/104/300/300" class="img-fluid" alt="dreamcatcher">
-                    {% endif %}
-
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="card-body">
-                        <p class="card-text">{{ my_profile.summary|raw }}</p>
-                        <h3 class="card-text">Mes informations personnelles</h3>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Je suis né le {{ my_profile.birthday|date('d-m-Y') }}</li>
-                            <li class="list-group-item">J'habite à {{ my_profile.town }}</li>
-                        </ul>
-
+                        {% else %}
+                            <img src="https://picsum.photos/id/104/300/400" class="img-fluid" alt="dreamcatcher">
+                            {% endif %}>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </article>
+    </header>
+    <section class="py-5">
+        <div class="container px-5 mb-5">
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bolder mb-0 text-white"><span
+                            class="text-gradient d-inline">Mes projets récents</span></h1>
+            </div>
+            <div class="container">
 
-    <section>
-        <h2 class="text-center text-uppercase text-light">mes projets récents</h2>
-        <div class="card-group">
-            {% for project in projects %}
-                <div class="card mx-4 mb-4 shadow-lg mb-4">
-                    {% if project.imageFile %}
-                        <img src="{{ vich_uploader_asset(project) }}" class="card-img-top img-fluid" alt="{{ project.name }}">
-                    {% else %}
-                        <img src="https://picsum.photos/100/" class="card-img-top img-fluid" alt="image picsum aléatoire">
-                    {% endif %}
-                    <div class="card-body d-flex flex-column justify-content-around align-items-center">
-                        <div class="d-flex flex-row justify-content-between">
-                            <h5 class="card-title">{{ project.name }}</h5>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for project in projects %}
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                {% if project.imageFile %}
+                                    <img src="{{ vich_uploader_asset(project) }}" class="card-img-top img-fluid"
+                                         alt="{{ project.name }}">
+                                {% else %}
+                                    <img src="https://picsum.photos/100/" class="card-img-top img-fluid"
+                                         alt="image picsum aléatoire">
+                                {% endif %}
+
+                                <div class="card-body">
+                                    <p class="card-text">{{ project.name }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="{{ path('project_show', {'id': project.id}) }}"
+                                               class="btn btn-sm btn-outline-info">En savoir plus
+                                            </a>
+                                        </div>
+                                        <small class="text-muted">{{ project.date|format_date('short', locale='fr') }}</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <a href="{{ path('project_show', {'id': project.id}) }}" class="btn btn-outline-info">En savoir plus</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section-->
+    <section class="bg-light py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xxl-8">
+                    <div class="text-center my-5">
+                        <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">A propos de moi</span></h2>
+                        <p class="lead fw-light mb-4">Mon nom
+                            est {{ my_profile.firstname }} {{ my_profile.lastname }}</p>
+                        <p class="text-muted">{{ my_profile.summary|raw }}</p>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
         </div>
-
     </section>
 {% endblock %}
