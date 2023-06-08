@@ -3,8 +3,36 @@
 {% block title %}Project{% endblock %}
 
 {% block body %}
-    <h1 class="text-uppercase text-light text-center">{{ project.name }}</h1>
-    <article class="d-flex justify-content-center align-items-center">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">{% if project.imageFile %}
+                    <div class="col-md-6"><img src="{{ vich_uploader_asset(project) }}"
+                                               class="card-img-top img-fluid mb-5 mb-md-0" alt="{{ project.name }}">
+                    </div>
+                {% else %}
+                    <div class="col-md-6"><img src="https://picsum.photos/200/"
+                                               class="card-img-top img-fluid mb-5 mb-md-0" alt="image picsum aléatoire">
+                    </div>
+                {% endif %}
+                <div class="col-md-6">
+                    <div class="small mb-1 text-light">Terminé
+                        le {{ project.date|format_date('full', locale='fr') }}</div>
+                    <h1 class="display-5 fw-bolder text-light">{{ project.name }}</h1>
+                        <p class="lead">{{ project.description|raw }}</p>
+                        <div class="d-md-flex btn-group justify-content-md-start">
+                            <a href="{{ project.githublink }}" class="btn btn-outline-info flex-shrink-0 text-center align-items-center d-flex justify-content-md-center">
+                                Vers le GitHub
+                            </a>
+                            {% if project.website %}
+                                <a href="{{ project.website }}" class="btn btn-outline-info flex-shrink-0 text-center align-items-center d-flex justify-content-md-center">Site web</a>
+                            {% endif %}
+                            <a href="{{ path("project_index") }}" class="btn btn-outline-info text-center align-items-center d-flex justify-content-md-center">Retour à la liste des projets</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# <article class="d-flex justify-content-center align-items-center">
         <div class="card card-show my-4 shadow-lg">
             {% if project.imageFile %}
                 <img src="{{ vich_uploader_asset(project) }}" class="card-img-top img-fluid" alt="{{ project.name }}">
@@ -25,7 +53,7 @@
                 </div>
             </article>
         </div>
-    </article>
+    </article> #}
 
 
 {% endblock %}
