@@ -32,28 +32,5 @@
             </div>
         </div>
     </section>
-    {# <article class="d-flex justify-content-center align-items-center">
-        <div class="card card-show my-4 shadow-lg">
-            {% if project.imageFile %}
-                <img src="{{ vich_uploader_asset(project) }}" class="card-img-top img-fluid" alt="{{ project.name }}">
-            {% else %}
-                <img src="https://picsum.photos/200/" class="card-img-top img-fluid" alt="image picsum aléatoire">
-            {% endif %}
-            <article class="card-body">
-                <p class="card-text">{{ project.description|raw }}</p>
-                <p class="card-text">Terminé le {{ project.date|format_date('full', locale='fr') }}</p>
-                <div class="d-flex flex-row justify-content-around">
-                    <a href="{{ project.githublink }}" class="btn btn-outline-info">Vers le GitHub</a>
-                    {% if project.website %}
-                        <a href="{{ project.website }}" class="btn btn-outline-info">Site web</a>
-                    {% endif %}
-                </div>
-                <div class="text-center">
-                    <a href="{{ path("project_index") }}" class="btn btn-outline-info">Retour à la liste des projets</a>
-                </div>
-            </article>
-        </div>
-    </article> #}
-
 
 {% endblock %}
