@@ -1,13 +1,13 @@
 controllers:
     resource: '../../src/Controller/'
-    type: annotation
+    type: attribute
 
 admin:
     resource: '../../src/Controller/Admin/'
-    type: annotation
+    type: attribute
     prefix: /admin
     name_prefix: admin_
 
 kernel:
     resource: ../../src/Kernel.php
-    type: annotation
+    type: attribute

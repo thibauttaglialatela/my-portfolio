@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PersonnalContentRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Component\HttpFoundation\File\File;

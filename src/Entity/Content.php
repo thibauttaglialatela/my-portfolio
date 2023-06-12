@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\ContentRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
-
+//TODO: ajouter manuellement la propriété image et générer les getter et les setter
 /**
  * @ORM\Entity(repositoryClass=ContentRepository::class)
  */
@@ -53,6 +54,11 @@ class Content
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="contents")
      */
     private  ?Category $category;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $image = "";
 
 
     public function getId(): ?int
@@ -128,6 +134,18 @@ class Content
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }
