@@ -7,7 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
-//TODO: ajouter manuellement la propriété image et générer les getter et les setter
+
 /**
  * @ORM\Entity(repositoryClass=ContentRepository::class)
  */
@@ -83,7 +83,7 @@ class Content
         return $this->date;
     }
 
-    public function setDate(?\DateTimeInterface $date): self
+    public function setDate(?\DateTime $date): self
     {
         $this->date = $date;
 

@@ -98,7 +98,7 @@ class PersonnalContent
     /**
      * @ORM\Column(type="text")
      */
-    private $summary = "";
+    private string $summary = "";
 
     public function getId(): ?int
     {
@@ -134,7 +134,7 @@ class PersonnalContent
         return $this->birthday;
     }
 
-    public function setBirthday(\DateTimeInterface $birthday): self
+    public function setBirthday(\DateTime $birthday): self
     {
         $this->birthday = $birthday;
 
