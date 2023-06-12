@@ -33,6 +33,7 @@ class ContentFixtures extends Fixture implements DependentFixtureInterface
                 $content->setDescription($faker->text());
                 $content->setLocalisation($faker->city());
                 $content->setCategory($this->getReference($category));
+                $content->setImage($faker->imageUrl(200, 200,'logo'));
                 $manager->persist($content);
             }
         }

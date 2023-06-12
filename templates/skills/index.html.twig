@@ -3,22 +3,38 @@
 {% block title %}{{ parent() }} - Compétences{% endblock %}
 
 {% block body %}
-    <h1 class="text-light text-center text-uppercase">Mes compétences</h1>
-    <section class="container-fluid">
-        {% for skill in skills %}
-            <div class="row">
-                <div class="card offset-2 col-8 my-4">
-                    <div class="card-header text-center text-decoration-underline fs-2">
-                        {{ skill.name }}
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">{{ skill.description|raw }}</p>
-                    </div>
-                </div>
+    <header class="bg-dark py-1">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Mes compétences</h1>
             </div>
-        {% endfor %}
-
+        </div>
+    </header>
+    <!-- Section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                {% for skill in skills %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+{#                            illustrations#}
+                            {% if skill.image %}
+                                <img src="{{ skill.image }}" alt="logo" class="card-img-top img-fluid">
+                                {% else %}
+                                    <img src="https://picsum.photos/100/100" class="card-img-top img-fluid" alt="logo">
+                            {% endif %}
+                            <!-- skill details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- skill name-->
+                                    <h5 class="fw-bolder">{{ skill.name }}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </section>
-
 
 {% endblock %}

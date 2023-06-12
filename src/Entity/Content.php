@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ContentRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -54,6 +55,11 @@ class Content
      */
     private  ?Category $category;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $image = "";
+
 
     public function getId(): ?int
     {
@@ -77,7 +83,7 @@ class Content
         return $this->date;
     }
 
-    public function setDate(?\DateTimeInterface $date): self
+    public function setDate(?\DateTime $date): self
     {
         $this->date = $date;
 
@@ -128,6 +134,18 @@ class Content
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

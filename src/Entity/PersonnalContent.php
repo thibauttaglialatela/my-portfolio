@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PersonnalContentRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Component\HttpFoundation\File\File;
@@ -97,7 +98,7 @@ class PersonnalContent
     /**
      * @ORM\Column(type="text")
      */
-    private $summary = "";
+    private string $summary = "";
 
     public function getId(): ?int
     {
@@ -133,7 +134,7 @@ class PersonnalContent
         return $this->birthday;
     }
 
-    public function setBirthday(\DateTimeInterface $birthday): self
+    public function setBirthday(\DateTime $birthday): self
     {
         $this->birthday = $birthday;
 
